@@ -1,7 +1,9 @@
 // Recipes were generated using ChatGPT: https://chat.openai.com/share/3c9d9b7b-b8bc-4110-b5ab-3bb6de01b17a
-recipes = [
+// Images were mostly gather from https://www.woolworths.com.au/ and https://www.alphafoodie.com/
+ const recipes = [
     {   
         id: 1,
+        img_url: "./recipe_images/quinoa_salad.jpeg",
         rec_name: "Quinoa Salad",
         restrictions: "Vegan",
         cooking_time: "20 Minutes",
@@ -9,6 +11,7 @@ recipes = [
     },
     {   
         id: 2,
+        img_url: "./recipe_images/chicken_stirfry.jpeg",
         rec_name: "Chicken Stir-Fry",
         restrictions: "Gluten-Free",
         cooking_time: "25 minutes",
@@ -16,6 +19,7 @@ recipes = [
     },
     {   
         id: 3,
+        img_url: "./recipe_images/cauli_pizza.jpeg",
         rec_name: "Cauliflower Pizza",
         restrictions: "Gluten-Free",
         cooking_time: "25 minutes",
@@ -23,6 +27,7 @@ recipes = [
     },
     {
         id: 4,
+        img_url: "./recipe_images/baked_salmon.jpeg",
         rec_name: "Baked Salmon",
         restrictions: "Paleo",
         cooking_time: "20 minutes",
@@ -30,6 +35,7 @@ recipes = [
     },
     {
         id: 5,
+        img_url: "./recipe_images/pesto_noodles.jpeg",
         rec_name: "Zucchini Noodles with Pesto",
         restrictions: "Keto",
         cooking_time: "15 minutes",
@@ -37,6 +43,7 @@ recipes = [
     },
     {
         id: 6,
+        img_url: "./recipe_images/chickpea_curry.jpeg",
         rec_name: "Chickpea Curry",
         restrictions: "Vegetarian",
         cooking_time: "30 minutes",
@@ -44,6 +51,7 @@ recipes = [
     },
     {
         id: 7,
+        img_url: "./recipe_images/banana_muffins.jpeg",
         rec_name: "Banana Oat Muffins",
         restrictions: "Nut-Free",
         cooking_time: "25 minutes",
@@ -51,6 +59,7 @@ recipes = [
     },
     {
         id: 8,
+        img_url: "./recipe_images/lentil_soup.jpeg",
         rec_name: "Lentil Soup",
         restrictions: "Vegan",
         cooking_time: "45 minutes",
@@ -58,13 +67,15 @@ recipes = [
     },
     {
         id: 9,
+        img_url: "./recipe_images/beef_stirfry.jpeg",
         rec_name: "Beef Stir-Fry",
         restrictions: "Paleo",
         cooking_time: "25 minutes",
         ingredients: "Beef strips, broccoli, carrots, coconut aminos, garlic, ginger, coconut oil."
     },
     {
-        id: 9,
+        id: 10,
+        img_url: "./recipe_images/tacos.jpeg",
         rec_name: "Black Bean Tacos",
         restrictions: "Vegetarian",
         cooking_time: "20 minutes",
@@ -72,3 +83,5 @@ recipes = [
     },
    
 ]
+
+export default recipes;
