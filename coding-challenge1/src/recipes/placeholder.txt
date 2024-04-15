@@ -1,0 +1,7 @@
+<RecipeCard
+                rec_name={recipes[0].rec_name}
+                img_url={recipes[9].img_url}
+                cooking_time={recipes[0].cooking_time}
+                restrictions={recipes[0].restrictions}
+                ingredients={recipes[0].ingredients}
+            />

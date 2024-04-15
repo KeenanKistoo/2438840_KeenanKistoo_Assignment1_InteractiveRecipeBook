@@ -1,0 +1,24 @@
+.show{
+    margin-left: 0rem;
+}
+
+.pop-up{
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 1%;
+    margin-left: 20rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 65%;
+    background-color: rgb(253, 249, 247);
+}
+
+.hide{
+    margin-left: 500rem;  
+  }
+
+.rec-image{
+    width: 20rem;
+}
+
