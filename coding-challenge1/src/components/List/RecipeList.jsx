@@ -27,17 +27,24 @@ function RecipeList(){
         setSearch(e.target.value);
     }
 
-    function toggleFavorite(){
-        setRecipes(prevRecipes => prevRecipes.map(recipe => 
-        recipe.id === recipe.Id ?
-            {...recipe, favorite: !recipe.favorite} : recipe));
+    function toggleFavorite(id) {
+        setRecipes(prevRecipes =>
+            prevRecipes.map(recipe =>
+                recipe.id === id ? { ...recipe, favorite: !recipe.favorite } : recipe
+            )
+        );
+        console.log(recipes);
     }
     /*This conntrols what recipes are being displayed. There are two main checks:
     1) if the filter button is clicked, it filters those recipes
     2) if there is a value in your search box.
     */
+
+    function handleFavorites(){
+        setFilter("Favorites")
+    }
     const filteredRecipes = recipes.filter(recipe => 
-        (!filter || recipe.restrictions === filter) &&
+        (!filter || (filter === "favorite" ? recipe.favorite === true : recipe.restrictions === filter)) &&
         (recipe.rec_name.toLowerCase().includes(search.toLowerCase()))
     );
 
@@ -79,12 +86,12 @@ function RecipeList(){
                 </button>
                 <button 
                     className={filter === "Vegan" ? "filter-btns active" : "filter-btns"}
-                    onClick={() =>handleFilter("Vegan")}>
+                    onClick={() => handleFilter("Vegan")}>
                         Vegan
                 </button>
                 <button 
-                    className={filter === "Vegan" ? "filter-btns active" : "filter-btns"}
-                    onClick={() =>handleFilter("Vegan")}>
+                    className={filter === "Favorites" ? "filter-btns active" : "filter-btns"}
+                    onClick={() => handleFavorites}>
                         Favourite
                 </button>
                 <section className="search-sect">
@@ -102,8 +109,13 @@ function RecipeList(){
                             <h2 onClick={TestFunction} className="rec-head">{recipe.rec_name}</h2>
                             <p className="gen-txt">Restrictions: {recipe.restrictions}</p>
                             <p className="gen-txt">Cooking Time: {recipe.cooking_time}</p>
-                            <button onClick={() => toggleFavorite(recipe.id)}
-                            className="fav-btn"><Heart size={24}/></button>
+                            <button 
+                                onClick={() => toggleFavorite(recipe.id)}
+                                className={recipe.favorite ? 'fav-btn selected' : 'fav-btn'}
+                            >
+                                <Heart size={24}/>
+                            </button>
+
                         </section>
                     </article>
                 ))}
