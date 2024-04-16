@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import RecipeCard from "../Card/RecipeCard";
-import recipes from "../../recipes/recipes";
+import recipesData from "../../recipes/recipes";
 import './RecipeList.css'
 import { Heart } from "@phosphor-icons/react";
 
 function RecipeList(){
-    const [filter, setFilter] = useState(null);
+    const [filter, setFilter] = useState(null); //Monitors/Changes the filter buttons
+    const [search, setSearch] = useState(""); //Monitors/Changes the searchbox state
+    const [recipes, setRecipes] = useState(recipesData); /*Used state change to store the recipe data so that it can be altered
+                                                            without changing the orignal data set*/
 
     function handleFilter(restriction){
         setFilter(restriction);
@@ -19,9 +22,26 @@ function RecipeList(){
         console.log("Button Active")
     }
 
-    const filteredRecipes = filter
-    ? recipes.filter(recipe => recipe.restrictions === filter)
-    : recipes;
+    //Updates search state with value in input field (className: search-box)
+    function handleSearch(e){
+        setSearch(e.target.value);
+    }
+
+    function toggleFavorite(){
+        setRecipes(prevRecipes => prevRecipes.map(recipe => 
+        recipe.id === recipe.Id ?
+            {...recipe, favorite: !recipe.favorite} : recipe));
+    }
+    /*This conntrols what recipes are being displayed. There are two main checks:
+    1) if the filter button is clicked, it filters those recipes
+    2) if there is a value in your search box.
+    */
+    const filteredRecipes = recipes.filter(recipe => 
+        (!filter || recipe.restrictions === filter) &&
+        (recipe.rec_name.toLowerCase().includes(search.toLowerCase()))
+    );
+
+
 
     return (  
         <>
@@ -67,6 +87,13 @@ function RecipeList(){
                     onClick={() =>handleFilter("Vegan")}>
                         Favourite
                 </button>
+                <section className="search-sect">
+                    <input className="search-box"
+                     type="text"
+                     placeholder="Search"
+                     value={search}
+                     onChange={handleSearch} />
+                </section>
             </section>
                 {filteredRecipes.map((recipe) => (
                     <article className="recipe-item" key={recipe.id}>
@@ -75,7 +102,8 @@ function RecipeList(){
                             <h2 onClick={TestFunction} className="rec-head">{recipe.rec_name}</h2>
                             <p className="gen-txt">Restrictions: {recipe.restrictions}</p>
                             <p className="gen-txt">Cooking Time: {recipe.cooking_time}</p>
-                            <button className="fav-btn"><Heart size={24}/></button>
+                            <button onClick={() => toggleFavorite(recipe.id)}
+                            className="fav-btn"><Heart size={24}/></button>
                         </section>
                     </article>
                 ))}

@@ -75,3 +75,14 @@
 .selected{
     background-color: rgb(255, 119, 119);
 }
+
+.search-sect{
+    margin-left: 21rem;
+}
+.search-box{
+    margin-top: 1rem;
+    width: 35rem;
+    height: 2.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+}
