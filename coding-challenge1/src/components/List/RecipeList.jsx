@@ -10,6 +10,13 @@ function RecipeList(){
         setFilter(restriction);
         
     }
+    /*This function is used to test buttons when debugging code.
+    When a button is not acting as expected, my first debug test
+    is to check if the button is actually working or not.
+    */
+    function TestFunction(){
+        console.log("Button Active")
+    }
 
     const filteredRecipes = filter
     ? recipes.filter(recipe => recipe.restrictions === filter)
@@ -54,12 +61,17 @@ function RecipeList(){
                     onClick={() =>handleFilter("Vegan")}>
                         Vegan
                 </button>
+                <button 
+                    className={filter === "Vegan" ? "filter-btns active" : "filter-btns"}
+                    onClick={() =>handleFilter("Vegan")}>
+                        Favourite
+                </button>
             </section>
                 {filteredRecipes.map((recipe) => (
                     <article className="recipe-item" key={recipe.id}>
                         <img className="rec-img" src={recipe.img_url} alt={"Image of " + recipe.rec_name}/>
                         <section className="info">
-                            <h2 className="rec-head">{recipe.rec_name}</h2>
+                            <h2 onClick={TestFunction} className="rec-head">{recipe.rec_name}</h2>
                             <p className="gen-txt">Restrictions: {recipe.restrictions}</p>
                             <p className="gen-txt">Cooking Time: {recipe.cooking_time}</p>
                         </section>

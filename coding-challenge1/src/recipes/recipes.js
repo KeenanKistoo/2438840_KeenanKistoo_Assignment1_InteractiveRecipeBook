@@ -1,6 +1,6 @@
 // Recipes were generated using ChatGPT: https://chat.openai.com/share/3c9d9b7b-b8bc-4110-b5ab-3bb6de01b17a
 
- const recipes = [
+ let recipes = [
     {   
         id: 0,
         img_url: "https://img.freepik.com/free-photo/some-delicious-meal-with-green-onions-pepper-blue-plate-wood-red-cloth-white-textured-background-top-view_176474-3914.jpg?t=st=1713210159~exp=1713213759~hmac=58d2cf5d1a23e254e1e6cda793963aa92b3daeeac353ca478344af45cc4c049d&w=826",

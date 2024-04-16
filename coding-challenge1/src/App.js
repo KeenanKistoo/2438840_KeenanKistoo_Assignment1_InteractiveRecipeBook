@@ -15,3 +15,9 @@ function App() {
 }
 
 export default App;
+
+/*  The general idea here is to allow all the recipe list to be displayed and the individual recipe to act as a pop-up
+    when clicked. I would rather one <RecipeCard/> component being called in RecipeList.jsx and it being adjusted when necessary, than
+    continously adding and deleting components. (15/04)
+
+*/
