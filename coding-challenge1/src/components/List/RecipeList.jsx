@@ -56,11 +56,13 @@ function RecipeList(){
     // Update display recipes based on current mode
     const displayRecipes = showFavorites ? filteredRecipes.filter(recipe => recipe.favorite) : filteredRecipes;
 
+    //Changes the props on the RecipeCard to match what the user clicked
     function SelectRecipe(id){
         setId(id);
         setShowCard("show")
     }
 
+    //Hides the RecipeCard.
     function toggleShowCard(){
         setShowCard("hide")
     }
@@ -155,3 +157,18 @@ function RecipeList(){
 }
 
 export default RecipeList;
+
+/*Overall Reflection:
+There were certain aspects of this jsx file in particular where I do think I could have managed better. 
+For example, using another component for each filter button to reduce clutter as well as the displayed 
+recipes. 
+I was pretty far ahead when I realised this and did not want to change too much which could possibly 
+lead to errors that I did not previously face. 
+
+On the bright side, I coded my first working application without external help! I think that my approach 
+for this exercise helped with the successful elements of it. I wrote down the different steps I believed 
+is neccessary to achieve what is stated in the brief, and either ticked or crossed off certain elements
+as I went along. When something work, I made note of it for future tasks.
+
+I am honestly just glad that everything works. 
+*/
