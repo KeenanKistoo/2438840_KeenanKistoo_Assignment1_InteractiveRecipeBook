@@ -9,6 +9,7 @@ function RecipeList(){
     const [search, setSearch] = useState(""); //Monitors/Changes the searchbox state
     const [recipes, setRecipes] = useState(recipesData); /*Used state change to store the recipe data so that it can be altered
                                                             without changing the orignal data set*/
+    
 
     function handleFilter(restriction){
         setFilter(restriction);
@@ -44,11 +45,26 @@ function RecipeList(){
         setFilter("Favorites")
     }
     const filteredRecipes = recipes.filter(recipe => 
-        (!filter || (filter === "favorite" ? recipe.favorite === true : recipe.restrictions === filter)) &&
+        (!filter || recipe.restrictions === filter) &&
         (recipe.rec_name.toLowerCase().includes(search.toLowerCase()))
     );
 
+    const favoriteRecipes =recipes.filter(recipe => 
+        (recipe.favorite === true) &&
+        (recipe.rec_name.toLowerCase().includes(search.toLowerCase()))
+    );
 
+    const [displayRecipes, setDisplayRecipes] = useState(filteredRecipes);
+
+    function swapRecipes(){
+        if(displayRecipes === filteredRecipes ){
+            setDisplayRecipes(favoriteRecipes)
+        }else if(displayRecipes === favoriteRecipes){
+            setDisplayRecipes(filteredRecipes)
+        }
+    }
+    console.log(displayRecipes);
+    //if statement to select which recipes to display
 
     return (  
         <>
@@ -91,7 +107,7 @@ function RecipeList(){
                 </button>
                 <button 
                     className={filter === "Favorites" ? "filter-btns active" : "filter-btns"}
-                    onClick={() => handleFavorites}>
+                    onClick={() => swapRecipes()}>
                         Favourite
                 </button>
                 <section className="search-sect">
@@ -102,7 +118,7 @@ function RecipeList(){
                      onChange={handleSearch} />
                 </section>
             </section>
-                {filteredRecipes.map((recipe) => (
+                {displayRecipes.map((recipe) => (
                     <article className="recipe-item" key={recipe.id}>
                         <img className="rec-img" src={recipe.img_url} alt={"Image of " + recipe.rec_name}/>
                         <section className="info">
