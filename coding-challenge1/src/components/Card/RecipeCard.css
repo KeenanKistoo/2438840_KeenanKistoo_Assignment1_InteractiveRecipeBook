@@ -37,3 +37,16 @@ text-align: center;
     margin-bottom: -0.3rem;
     margin-top: -1rem;
 }
+
+.back-btn{
+    width: 15rem;
+    height: 2.5rem;
+    background-color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.3rem;
+}
+
+.back-btn:hover{
+    background-color: rgb(245, 161, 161);
+    cursor: pointer;
+}
