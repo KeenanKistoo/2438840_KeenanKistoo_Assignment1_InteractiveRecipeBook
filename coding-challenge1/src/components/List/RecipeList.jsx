@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RecipeCard from "../Card/RecipeCard";
 import recipes from "../../recipes/recipes";
 import './RecipeList.css'
+import { Heart } from "@phosphor-icons/react";
 
 function RecipeList(){
     const [filter, setFilter] = useState(null);
@@ -74,6 +75,7 @@ function RecipeList(){
                             <h2 onClick={TestFunction} className="rec-head">{recipe.rec_name}</h2>
                             <p className="gen-txt">Restrictions: {recipe.restrictions}</p>
                             <p className="gen-txt">Cooking Time: {recipe.cooking_time}</p>
+                            <button className="fav-btn"><Heart size={24}/></button>
                         </section>
                     </article>
                 ))}

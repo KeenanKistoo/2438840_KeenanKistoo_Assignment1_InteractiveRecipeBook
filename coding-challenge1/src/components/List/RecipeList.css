@@ -61,3 +61,17 @@
     background-color: black;
     color: white;
 }
+
+.fav-btn{
+    background-color: white;
+    float: right;
+    margin-top: -11rem;
+}
+
+.fav-btn:hover{
+   cursor: pointer;
+}
+
+.selected{
+    background-color: rgb(255, 119, 119);
+}
